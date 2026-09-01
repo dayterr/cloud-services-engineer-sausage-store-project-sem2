@@ -66,8 +66,8 @@ backend:
     httpGet:
       path: /actuator/health
       port: 8080
-      initialDelaySeconds: 90
-      periodSeconds: 10
+    initialDelaySeconds: 90
+    periodSeconds: 10
   vpa:
     updatePolicy:
       updateMode: "Off"
