@@ -119,7 +119,4 @@ jobs:
         - name: Deploy with Helm
           run: |
             envsubst < ./sausage-store-chart/values.yaml > ./values-resolved.yaml
-            helm upgrade --install sausage-store nexus/sausage-store \
-              --namespace ${{ secrets.NAMESPACE }} \
-              --values ./values-resolved.yaml \
-              --kubeconfig ./kubeconfig      
+            helm upgrade --install sausage-store nexus/sausage-store --namespace ${{ secrets.NAMESPACE }} --values ./values-resolved.yaml --kubeconfig ./kubeconfig      
