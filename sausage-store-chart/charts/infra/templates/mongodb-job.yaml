@@ -49,9 +49,9 @@ spec:
               echo "User created successfully."
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              value: {{ .Values.infra.mongodb.env.MONGO_INITDB_ROOT_USERNAME | quote }}
+              value: {{ .Values.mongodb.env.MONGO_INITDB_ROOT_USERNAME | quote }}
             - name: MONGO_INITDB_ROOT_PASSWORD
-              value: {{ .Values.infra.mongodb.env.MONGO_INITDB_ROOT_PASSWORD | quote }}
+              value: {{ .Values.mongodb.env.MONGO_INITDB_ROOT_PASSWORD | quote }}
             - name: REPORTS_DB
               value: {{ .Values.global.mongodb.reports.database | quote }}
             - name: REPORTS_USER
