@@ -49,18 +49,12 @@ spec:
               echo "User created successfully."
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
-              valueFrom:
-                configMapKeyRef:
-                  name: mongodb-conf
-                  key: MONGO_INITDB_ROOT_USERNAME
+              value: {{ .Values.infra.mongodb.env.MONGO_INITDB_ROOT_USERNAME | quote }}
             - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  name: mongodb-conf
-                  key: MONGO_INITDB_ROOT_PASSWORD
+              value: {{ .Values.infra.mongodb.env.MONGO_INITDB_ROOT_PASSWORD | quote }}
             - name: REPORTS_DB
-              value: {{ .Values.mongodb.reports.database }}
+              value: {{ .Values.global.mongodb.reports.database | quote }}
             - name: REPORTS_USER
-              value: {{ .Values.mongodb.reports.user }}
+              value: {{ .Values.global.mongodb.reports.user | quote }}
             - name: REPORTS_PASSWORD
-              value: {{ .Values.mongodb.reports.password }}
+              value: {{ .Values.global.mongodb.reports.password | quote }}
