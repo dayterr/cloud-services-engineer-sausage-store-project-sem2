@@ -65,8 +65,8 @@ backend:
   containerPort: 8080
   livenessProbe:
     httpGet:
-        path: /actuator/health
-        port: 8080
+      path: /actuator/health
+      port: 8080
       initialDelaySeconds: 90
       periodSeconds: 10
   vpa:
