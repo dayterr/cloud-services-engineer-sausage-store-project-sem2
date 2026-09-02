@@ -38,7 +38,11 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 1Gi
+            memory: {{ .Values.mongodb.resources.requests.memory | quote }}
+            cpu: {{ .Values.mongodb.resources.requests.cpu | quote }}
+          limits:
+            memory: {{ .Values.mongodb.resources.limits.memory | quote }}
+            cpu: {{ .Values.mongodb.resources.limits.cpu | quote }}
 ---
 apiVersion: v1
 kind: Service
