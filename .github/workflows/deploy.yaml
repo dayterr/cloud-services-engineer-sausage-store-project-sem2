@@ -86,7 +86,7 @@ jobs:
           run: helm plugin install https://github.com/chartmuseum/helm-push
 
         - name: Package Helm chart
-          run: helm package ./sausage-store --version ${{ env.CHART_VERSION }}
+          run: helm package ./sausage-store-chart --version ${{ env.CHART_VERSION }}
           
         - name: Add Nexus Helm repo
           run: |
