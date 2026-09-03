@@ -86,7 +86,7 @@ jobs:
           run: helm plugin install https://github.com/chartmuseum/helm-push
 
         - name: Package Helm chart
-          run: helm package ./sausage-store-chart --version ${{ env.CHART_VERSION }}
+          run: helm package ./sausage-store --version ${{ env.CHART_VERSION }}
           
         - name: Add Nexus Helm repo
           run: |
@@ -120,5 +120,5 @@ jobs:
             helm repo update
         - name: Deploy with Helm
           run: |
-            envsubst < ./sausage-store-chart/values.yaml > ./values-resolved.yaml
+            envsubst < ./sausage-store/values.yaml > ./values-resolved.yaml
             helm upgrade --install sausage-store nexus/sausage-store --namespace ${{ secrets.NAMESPACE }} --values ./values-resolved.yaml --kubeconfig ./kubeconfig      
