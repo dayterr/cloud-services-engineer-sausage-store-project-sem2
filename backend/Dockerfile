@@ -1,13 +1,13 @@
 #Это так называемый мультистейдж docker-файл. Сначала делаем образ, который соберёт нам java-приложение,
 #а затем из него берём собранный артефакт и кладём его в новый образ, чтобы оставить в нём меньше лишнего
 
-# build
-FROM maven:3.8.2-openjdk-16-slim AS builder
-# задаём переменную VERSION, которая будет использоваться для сборки проекта
+FROM maven:3.9.9-eclipse-temurin-17 AS builder
 ARG VERSION=${VERSION}
 WORKDIR /usr/src/app
 COPY ./src ./src
 COPY *.xml ./
+ENV VERSION=${VERSION}
+RUN mvn package -DskipTests
 
 RUN mvn package -Dversion.application=${VERSION}
 
