@@ -68,6 +68,7 @@ backend:
       port: 8080
     initialDelaySeconds: 90
     periodSeconds: 10
+    timeoutSeconds: 5 
   vpa:
     updatePolicy:
       updateMode: "Off"
