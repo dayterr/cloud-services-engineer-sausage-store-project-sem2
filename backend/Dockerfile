@@ -5,7 +5,8 @@ FROM maven:3.9.9-eclipse-temurin-17 AS builder
 ARG VERSION=${VERSION}
 WORKDIR /usr/src/app
 COPY ./src ./src
-COPY *.xml ./
+COPY pom.xml ./
+COPY ./src/main/resources/db/migration ./db/migration
 ENV VERSION=${VERSION}
 RUN mvn package -DskipTests
 
