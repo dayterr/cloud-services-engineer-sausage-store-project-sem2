@@ -6,7 +6,6 @@ ARG VERSION=${VERSION}
 WORKDIR /usr/src/app
 COPY ./src ./src
 COPY pom.xml ./
-COPY ./src/main/resources/db/migration ./db/migration
 ENV VERSION=${VERSION}
 RUN mvn package -DskipTests
 
