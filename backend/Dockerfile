@@ -9,8 +9,6 @@ COPY *.xml ./
 ENV VERSION=${VERSION}
 RUN mvn package -DskipTests
 
-RUN mvn package -Dversion.application=${VERSION}
-
 # release
 FROM eclipse-temurin:17-jre-alpine
 ARG VERSION=${VERSION}
