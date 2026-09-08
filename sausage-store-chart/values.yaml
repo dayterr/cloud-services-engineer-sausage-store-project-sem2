@@ -25,11 +25,11 @@ frontend:
   image: ${DOCKER_USER}/sausage-frontend:latest
   resources:
     requests:
-      memory: "128Mi"
-      cpu: "100m"
+      memory: "64Mi"
+      cpu: "50m"
     limits:
       memory: "128Mi"
-      cpu: "1"
+      cpu: "100m"
   nginxConf: nginx.conf
 
 backend:
@@ -60,7 +60,7 @@ backend:
       cpu: "100m"
     limits:
       memory: "512Mi"
-      cpu: "1"
+      cpu: "500m"
   containerPort: 8080
   livenessProbe:
     httpGet:
