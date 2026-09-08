@@ -53,6 +53,8 @@ spec:
                 configMapKeyRef:
                   name: {{ .Release.Name }}-{{ .Chart.Name }}-conf
                   key: vault_enabled
+            - name: SPRING_FLYWAY_LOCATIONS
+              value: "classpath:db/migration"
             - name: REPORT_PATH
               valueFrom:
                 configMapKeyRef:
