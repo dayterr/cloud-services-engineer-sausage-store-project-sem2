@@ -50,6 +50,8 @@ spec:
                   key: postgres_password
             - name: SPRING_APPLICATION_NAME
               value: "sausage-store-app"
+            - name: SPRING_DATA_MONGODB_URI
+              value: {{ .Values.env.mongoUri | quote }}
             - name: SPRING_CLOUD_VAULT_ENABLED
               valueFrom:
                 configMapKeyRef:
